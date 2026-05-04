@@ -1,0 +1,411 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Memory Collage</title>
+
+<style>
+:root {
+  --primary-yellow: #f9c74f;
+  --primary-blue: #3a86ff;
+  --primary-orange: #f3722c;
+  --primary-green: #43aa8b;
+
+  --bg1: #195591;
+  --bg2: #243B55;
+
+  --text: rgba(255, 255, 255, 0.92);
+  --muted: rgba(255, 255, 255, 0.7);
+
+  --glass: rgba(255, 255, 255, 0.06);
+  --border: rgba(255, 255, 255, 0.18);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, var(--bg1), var(--bg2));
+  color: var(--text);
+}
+
+/* SECTION */
+.collage-section {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.collage-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  color: var(--primary-yellow);
+}
+
+/* WRAPPER */
+.collage-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px;
+  align-items: center;
+}
+
+/* COLLAGE GRID */
+.collage-grid {
+  position: relative;
+  width: 420px;
+  height: 420px;
+}
+
+/* IMAGES BIGGER */
+.collage-grid .img {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 18px;
+  border: 3px solid var(--border);
+  transition: 0.4s ease;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* POSITIONS */
+.img1 { top: 0; left: 60px; transform: rotate(-8deg); }
+.img2 { top: 70px; left: 200px; transform: rotate(6deg); }
+.img3 { top: 170px; left: 20px; transform: rotate(4deg); }
+.img4 { top: 240px; left: 180px; transform: rotate(-6deg); }
+.img5 { top: 100px; left: 110px; transform: rotate(0deg); z-index: 2; }
+.img6 { top: 10px; left: 260px; transform: rotate(10deg); }
+
+/* HOVER */
+.collage-grid .img:hover {
+  transform: scale(1.2) rotate(0deg);
+  z-index: 5;
+}
+
+/* STORY BOX */
+.collage-story {
+  max-width: 420px;
+  text-align: left;
+  /* background: var(--glass); */
+  padding: 30px;
+
+}
+
+.collage-story h3 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  color: var(--primary-blue);
+}
+
+.collage-story h4 {
+  margin-bottom: 15px;
+  color: var(--primary-green);
+}
+
+.collage-story p {
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+/* LIGHTBOX */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  cursor: pointer;
+  color: white;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 25px;
+  margin-top: 60px;
+  color: var(--muted);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .collage-wrapper {
+    flex-direction: column;
+  }
+
+  .collage-grid {
+    width: 320px;
+    height: 320px;
+  }
+
+  .collage-grid .img {
+    width: 110px;
+    height: 110px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+
+  <!-- --------------------- -->
+<section class="collage-section">
+  <h2>📸 Memory Collage</h2>
+
+  <div class="collage-wrapper">
+
+    <!-- COLLAGE -->
+    <div class="collage-grid">
+      <img src="./momery/003.jpg" class="img img1">
+      <img src="./momery/20180601_155624-1.jpg" class="img img2">
+      <img src="./momery/20181128_081240.jpg" class="img img3">
+      <img src="./momery/20181214_122947.jpg" class="img img4">
+      <img src="./momery/20190225_185034-1.jpg" class="img img5">
+      <img src="./momery/DSC04938.JPG" class="img img6">
+    </div>
+
+    <!-- STORY -->
+    <div class="collage-story">
+      <h3>✨ A Journey We Lived Together</h3>
+      <h4>📍 Dharan, Nepal</h4>
+      <p>
+        These moments capture more than just smiles — they hold stories of late
+        laughs, shared dreams, and unbreakable bonds. From sunny afternoons to
+        peaceful mornings, every frame tells a chapter of our journey. Time may
+        move forward, but these memories keep us connected forever.
+      </p>
+    </div>
+  </div>
+
+  <div class="collage-wrapper">
+
+     <div class="collage-story">
+      <h3>✨ A Journey We Lived Together</h3>
+      <h4>📍 Dharan, Nepal</h4>
+      <p>
+        These moments capture more than just smiles — they hold stories of late
+        laughs, shared dreams, and unbreakable bonds. From sunny afternoons to
+        peaceful mornings, every frame tells a chapter of our journey. Time may
+        move forward, but these memories keep us connected forever.
+      </p>
+    </div>
+
+    <!-- COLLAGE -->
+    <div class="collage-grid">
+      <img src="./momery/003.jpg" class="img img1">
+      <img src="./momery/20180601_155624-1.jpg" class="img img2">
+      <img src="./momery/20181128_081240.jpg" class="img img3">
+      <img src="./momery/20181214_122947.jpg" class="img img4">
+      <img src="./momery/20190225_185034-1.jpg" class="img img5">
+      <img src="./momery/DSC04938.JPG" class="img img6">
+    </div>
+
+    <!-- STORY -->
+   
+
+  </div>
+  <div class="collage-wrapper">
+
+    <!-- COLLAGE -->
+    <div class="collage-grid">
+      <img src="./momery/003.jpg" class="img img1">
+      <img src="./momery/20180601_155624-1.jpg" class="img img2">
+      <img src="./momery/20181128_081240.jpg" class="img img3">
+      <img src="./momery/20181214_122947.jpg" class="img img4">
+      <img src="./momery/20190225_185034-1.jpg" class="img img5">
+      <img src="./momery/DSC04938.JPG" class="img img6">
+    </div>
+
+    <!-- STORY -->
+    <div class="collage-story">
+      <h3>✨ A Journey We Lived Together</h3>
+      <h4>📍 Dharan, Nepal</h4>
+      <p>
+        These moments capture more than just smiles — they hold stories of late
+        laughs, shared dreams, and unbreakable bonds. From sunny afternoons to
+        peaceful mornings, every frame tells a chapter of our journey. Time may
+        move forward, but these memories keep us connected forever.
+      </p>
+    </div>
+
+  </div>
+  <div class="collage-wrapper">
+
+
+        <div class="collage-story">
+      <h3>✨ A Journey We Lived Together</h3>
+      <h4>📍 Dharan, Nepal</h4>
+      <p>
+        These moments capture more than just smiles — they hold stories of late
+        laughs, shared dreams, and unbreakable bonds. From sunny afternoons to
+        peaceful mornings, every frame tells a chapter of our journey. Time may
+        move forward, but these memories keep us connected forever.
+      </p>
+    </div>
+
+    <!-- COLLAGE -->
+    <div class="collage-grid">
+      <img src="./momery/003.jpg" class="img img1">
+      <img src="./momery/20180601_155624-1.jpg" class="img img2">
+      <img src="./momery/20181128_081240.jpg" class="img img3">
+      <img src="./momery/20181214_122947.jpg" class="img img4">
+      <img src="./momery/20190225_185034-1.jpg" class="img img5">
+      <img src="./momery/DSC04938.JPG" class="img img6">
+    </div>
+
+    <!-- STORY -->
+
+  </div>
+  <div class="collage-wrapper">
+
+    <!-- COLLAGE -->
+    <div class="collage-grid">
+      <img src="./momery/003.jpg" class="img img1">
+      <img src="./momery/20180601_155624-1.jpg" class="img img2">
+      <img src="./momery/20181128_081240.jpg" class="img img3">
+      <img src="./momery/20181214_122947.jpg" class="img img4">
+      <img src="./momery/20190225_185034-1.jpg" class="img img5">
+      <img src="./momery/DSC04938.JPG" class="img img6">
+    </div>
+
+
+
+    <!-- STORY -->
+    <div class="collage-story">
+      <h3>✨ A Journey We Lived Together</h3>
+      <h4>📍 Dharan, Nepal</h4>
+      <p>
+        These moments capture more than just smiles — they hold stories of late
+        laughs, shared dreams, and unbreakable bonds. From sunny afternoons to
+        peaceful mornings, every frame tells a chapter of our journey. Time may
+        move forward, but these memories keep us connected forever.
+      </p>
+    </div>
+
+  </div>
+  <div class="collage-wrapper">
+
+
+
+<!-- STORY -->
+ <div class="collage-story">
+      <h3>✨ A Journey We Lived Together</h3>
+      <h4>📍 Dharan, Nepal</h4>
+      <p>
+        These moments capture more than just smiles — they hold stories of late
+        laughs, shared dreams, and unbreakable bonds. From sunny afternoons to
+        peaceful mornings, every frame tells a chapter of our journey. Time may
+        move forward, but these memories keep us connected forever.
+      </p>
+    </div>
+    <!-- COLLAGE -->
+    <div class="collage-grid">
+      <img src="./momery/003.jpg" class="img img1">
+      <img src="./momery/20180601_155624-1.jpg" class="img img2">
+      <img src="./momery/20181128_081240.jpg" class="img img3">
+      <img src="./momery/20181214_122947.jpg" class="img img4">
+      <img src="./momery/20190225_185034-1.jpg" class="img img5">
+      <img src="./momery/DSC04938.JPG" class="img img6">
+    </div>
+  </div>
+
+
+  <div class="collage-wrapper">
+
+    <!-- COLLAGE -->
+    <div class="collage-grid">
+      <img src="./momery/003.jpg" class="img img1">
+      <img src="./momery/20180601_155624-1.jpg" class="img img2">
+      <img src="./momery/20181128_081240.jpg" class="img img3">
+      <img src="./momery/20181214_122947.jpg" class="img img4">
+      <img src="./momery/20190225_185034-1.jpg" class="img img5">
+      <img src="./momery/DSC04938.JPG" class="img img6">
+    </div>
+
+    <!-- STORY -->
+    <div class="collage-story">
+      <h3>✨ A Journey We Lived Together</h3>
+      <h4>📍 Dharan, Nepal</h4>
+      <p>
+        These moments capture more than just smiles — they hold stories of late
+        laughs, shared dreams, and unbreakable bonds. From sunny afternoons to
+        peaceful mornings, every frame tells a chapter of our journey. Time may
+        move forward, but these memories keep us connected forever.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <span class="lightbox-close" id="close">&times;</span>
+  <img id="lightbox-img" src="">
+</div>
+
+<footer>
+  Made with ❤️ | PunYaSEEbatch2019
+</footer>
+
+<script>
+const images = document.querySelectorAll('.collage-grid img');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const closeBtn = document.getElementById('close');
+
+images.forEach(img => {
+  img.addEventListener('click', () => {
+    lightboxImg.src = img.src;
+    lightbox.classList.add('active');
+  });
+});
+
+closeBtn.addEventListener('click', () => {
+  lightbox.classList.remove('active');
+});
+
+lightbox.addEventListener('click', (e) => {
+  if (e.target !== lightboxImg) {
+    lightbox.classList.remove('active');
+  }
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === "Escape") {
+    lightbox.classList.remove('active');
+  }
+});
+</script>
+
+</body>
+</html>

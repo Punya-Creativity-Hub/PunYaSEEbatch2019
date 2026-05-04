@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Batch | Crystal Memories</title>
+
+  <style>
+    :root {
+      --primary-yellow: #f9c74f;
+      --primary-blue: #3a86ff;
+      --primary-orange: #f3722c;
+      --primary-green: #43aa8b;
+
+      --bg1: #195591;
+      --bg2: #243B55;
+
+      --text: rgba(255, 255, 255, 0.92);
+      --muted: rgba(255, 255, 255, 0.7);
+
+      --glass: rgba(255, 255, 255, 0.06);
+      --border: rgba(255, 255, 255, 0.18);
+    }
+
+    /* RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      color: var(--text);
+      background: linear-gradient(140deg, var(--bg1), var(--bg2));
+      overflow-x: hidden;
+    }
+
+    /* BLOBS */
+    .blob {
+      position: fixed;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0.6;
+      animation: float 12s infinite ease-in-out;
+      z-index: -1;
+    }
+
+    .blob1 {
+      background: var(--primary-blue);
+      top: 10%;
+      left: 5%;
+    }
+
+    .blob2 {
+      background: var(--primary-orange);
+      bottom: 10%;
+      right: 5%;
+      animation-delay: 3s;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-40px);
+      }
+    }
+
+    /* NAVBAR */
+    #navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      z-index: 1000;
+      transition: 0.4s;
+      /* background: rgb(160, 171, 143); */
+      background: #f3722c;
+    }
+
+    #navbar.scrolled {
+      background: rgba(161, 20, 20, 0.08);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(202, 13, 13, 0.15);
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-img {
+      width: 100px;
+      height: 40px;
+      /* border-radius:50%; */
+      object-fit: cover;
+      transition: 0.4s;
+    }
+
+    .logo-img:hover {
+      transform: rotate(-10deg) scale(1.1);
+    }
+
+    .logo-text {
+      font-size: 20px;
+      font-weight: bold;
+      color: var(--primary-yellow);
+    }
+
+    nav ul {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text);
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      width: 0%;
+      height: 2px;
+      background: var(--primary-yellow);
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      transition: 0.3s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* MENU TOGGLE */
+    .menu-toggle {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--text);
+    }
+
+    /* MOBILE NAV LINKS */
+    .nav-links {
+      display: none;
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      text-align: center;
+      padding: 140px 20px 80px;
+      height: 600px;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('./image/punyalogo.png');
+      background-position: center;
+      background-size: 460px;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      opacity: 0.4;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero>* {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 60px;
+      background: linear-gradient(90deg, var(--primary-yellow), var(--primary-blue));
+      -webkit-background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+    }
+
+    .hero p {
+      margin-top: 15px;
+      color: var(--muted);
+    }
+
+    /* CRYSTAL CARD */
+    .card {
+      position: relative;
+      background: var(--glass);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(20px);
+      border-radius: 25px;
+      padding: 20px;
+      overflow: hidden;
+      transition: .4s;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      width: 200%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+      top: 0;
+      left: -100%;
+      transition: .6s;
+    }
+
+    .card:hover::before {
+      left: 100%;
+    }
+
+    .card:hover {
+      transform: translateY(-10px) scale(1.02);
+    }
+
+    /* MEMBERS */
+    .members {
+      padding: 40px;
+      background: #195591;
+    }
+
+    .members h2 {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding-bottom: 20px;
+      text-align: center;
+    }
+
+    .member img {
+      width: 100%;
+      border-radius: 15px;
+    }
+
+    /* GALLERY */
+    .gallery {
+      padding: 40px;
+      background: #243B55;
+    }
+
+    .gallery h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .masonry {
+      column-count: 3;
+      column-gap: 10px;
+    }
+
+    .masonry img {
+      width: 100%;
+      margin-bottom: 10px;
+      border-radius: 15px;
+      transition: .4s;
+    }
+
+    .masonry img:hover {
+      transform: scale(1.05);
+      filter: brightness(1.2);
+    }
+
+
+
+    /* FUND SECTION */
+    .fund {
+      padding: 60px 40px;
+      display: flex;
+      align-items: center;
+
+    }
+
+    .fund-container {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    /* TEXT */
+    .fund-text {
+      flex: 1;
+    }
+
+    .fund-text h2 {
+      font-size: 28px;
+      margin-bottom: 15px;
+      background: white;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .fund-text p {
+      color: var(--muted);
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+
+    /* IMAGE */
+    .fund-image {
+      flex: 1;
+    }
+
+    .fund-image img {
+      width: 60%;
+      border-radius: 20px;
+      transition: 0.4s;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .fund-image img:hover {
+      transform: scale(1.05);
+    }
+
+    /* AIMS */
+    .fund-aims {
+      padding: 60px 40px;
+      text-align: center;
+    }
+
+    .fund-aims h2 {
+      margin-bottom: 30px;
+    }
+
+    /* GRID */
+    .aim-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    /* CARD */
+    .aim-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(20px);
+      padding: 25px;
+      border-radius: 25px;
+      transition: 0.4s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* SHINE EFFECT */
+    .aim-card::before {
+      content: '';
+      position: absolute;
+      width: 200%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      top: 0;
+      left: -100%;
+      transition: 0.6s;
+    }
+
+    .aim-card:hover::before {
+      left: 100%;
+    }
+
+    .aim-card:hover {
+      transform: translateY(-10px);
+    }
+
+    /* TEXT */
+    .aim-card h3 {
+      margin-bottom: 10px;
+    }
+
+    .aim-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:768px) {
+      .fund-container {
+        flex-direction: column;
+      }
+    }
+
+    .fund-text h2 {
+      font-size: 24px;
+
+    }
+
+
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: var(--muted);
+    }
+
+    /* MOBILE */
+    @media(max-width:768px) {
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .masonry {
+        column-count: 2;
+      }
+
+      nav ul {
+        display: none;
+      }
+
+      /* hide desktop nav */
+      .menu-toggle {
+        display: block;
+      }
+
+      /* show hamburger */
+
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        right: 20px;
+        background: var(--glass);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        transform: translateY(-20px);
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.3s;
+        z-index: 1001;
+      }
+
+      .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .nav-links a {
+        color: var(--text);
+        text-decoration: none;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-links a:last-child {
+        border-bottom: none;
+      }
+
+      #navbar {
+        padding: 15px 20px;
+      }
+
+      .hero::before {
+        background-size: 280px;
+        background-attachment: scroll;
+      }
+    }
+
+    @media(max-width:480px) {
+      .logo-img {
+        width: 80px;
+        height: 40px;
+
+        /* border-radius:50%; */
+        object-fit: cover;
+        transition: 0.4s;
+      }
+    }
+
+
+    /* SECTION */
+    .collage-section {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .collage-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 50px;
+      color: var(--primary-yellow);
+    }
+
+    /* WRAPPER */
+    .collage-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 50px;
+      align-items: center;
+    }
+
+    /* COLLAGE GRID */
+    .collage-grid {
+      position: relative;
+      width: 420px;
+      height: 420px;
+    }
+
+    /* IMAGES BIGGER */
+    .collage-grid .img {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 18px;
+      border: 3px solid var(--border);
+      transition: 0.4s ease;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    /* POSITIONS */
+    .img1 {
+      top: 0;
+      left: 60px;
+      transform: rotate(-8deg);
+    }
+
+    .img2 {
+      top: 70px;
+      left: 200px;
+      transform: rotate(6deg);
+    }
+
+    .img3 {
+      top: 170px;
+      left: 20px;
+      transform: rotate(4deg);
+    }
+
+    .img4 {
+      top: 240px;
+      left: 180px;
+      transform: rotate(-6deg);
+    }
+
+    .img5 {
+      top: 100px;
+      left: 110px;
+      transform: rotate(0deg);
+      z-index: 2;
+    }
+
+    .img6 {
+      top: 10px;
+      left: 260px;
+      transform: rotate(10deg);
+    }
+
+    /* HOVER */
+    .collage-grid .img:hover {
+      transform: scale(1.2) rotate(0deg);
+      z-index: 5;
+    }
+
+    /* STORY BOX */
+    .collage-story {
+      max-width: 420px;
+      text-align: left;
+      /* background: var(--glass); */
+      padding: 30px;
+
+    }
+
+    .collage-story h3 {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+      color: var(--primary-blue);
+    }
+
+    .collage-story h4 {
+      margin-bottom: 15px;
+      color: var(--primary-green);
+    }
+
+    .collage-story p {
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    /* LIGHTBOX */
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 40px;
+      cursor: pointer;
+      color: white;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 25px;
+      margin-top: 60px;
+      color: var(--muted);
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .collage-wrapper {
+        flex-direction: column;
+      }
+
+      .collage-grid {
+        width: 320px;
+        height: 320px;
+      }
+
+      .collage-grid .img {
+        width: 110px;
+        height: 110px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-left">
+      <img src="./image/punyalogo.png" class="logo-img">
+      <!-- <div class="logo-text">Our Batch</div> -->
+    </div>
+
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#members">Members</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="memories.html">Memories</a></li>
+    </ul>
+
+    <!-- MENU ICON -->
+    <div class="menu-toggle" id="menu-toggle">
+      ☰
+    </div>
+
+    <!-- MENU BOX -->
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#members">Members</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="memories.html">Memories</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Crystal Memories</h1>
+    <p>Moments that shine forever like crystal 💎</p>
+  </section>
+
+
+  <!-- --------------------- -->
+  <section class="collage-section">
+    <h2>📸 Memory Collage</h2>
+
+    <div class="collage-wrapper">
+
+      <!-- COLLAGE -->
+      <div class="collage-grid">
+        <img src="./momery/003.jpg" class="img img1">
+        <img src="./momery/20180601_155624-1.jpg" class="img img2">
+        <img src="./momery/20181128_081240.jpg" class="img img3">
+        <img src="./momery/20181214_122947.jpg" class="img img4">
+        <img src="./momery/20190225_185034-1.jpg" class="img img5">
+        <img src="./momery/DSC04938.JPG" class="img img6">
+      </div>
+
+      <!-- STORY -->
+      <div class="collage-story">
+        <h3>✨ A Journey We Lived Together</h3>
+        <h4>📍 Dharan, Nepal</h4>
+        <p>
+          These moments capture more than just smiles — they hold stories of late
+          laughs, shared dreams, and unbreakable bonds. From sunny afternoons to
+          peaceful mornings, every frame tells a chapter of our journey. Time may
+          move forward, but these memories keep us connected forever.
+        </p>
+      </div>
+    </div>
+
+    <div class="collage-wrapper">
+
+      <div class="collage-story">
+        <h3>✨ A Journey We Lived Together</h3>
+        <h4>📍 Dharan, Nepal</h4>
+        <p>
+          These moments capture more than just smiles — they hold stories of late
+          laughs, shared dreams, and unbreakable bonds. From sunny afternoons to
+          peaceful mornings, every frame tells a chapter of our journey. Time may
+          move forward, but these memories keep us connected forever.
+        </p>
+      </div>
+
+      <!-- COLLAGE -->
+      <div class="collage-grid">
+        <img src="./momery/003.jpg" class="img img1">
+        <img src="./momery/20180601_155624-1.jpg" class="img img2">
+        <img src="./momery/20181128_081240.jpg" class="img img3">
+        <img src="./momery/20181214_122947.jpg" class="img img4">
+        <img src="./momery/20190225_185034-1.jpg" class="img img5">
+        <img src="./momery/DSC04938.JPG" class="img img6">
+      </div>
+
+      <!-- STORY -->
+
+
+    </div>
+    <div class="collage-wrapper">
+
+      <!-- COLLAGE -->
+      <div class="collage-grid">
+        <img src="./momery/003.jpg" class="img img1">
+        <img src="./momery/20180601_155624-1.jpg" class="img img2">
+        <img src="./momery/20181128_081240.jpg" class="img img3">
+        <img src="./momery/20181214_122947.jpg" class="img img4">
+        <img src="./momery/20190225_185034-1.jpg" class="img img5">
+        <img src="./momery/DSC04938.JPG" class="img img6">
+      </div>
+
+      <!-- STORY -->
+      <div class="collage-story">
+        <h3>✨ A Journey We Lived Together</h3>
+        <h4>📍 Dharan, Nepal</h4>
+        <p>
+          These moments capture more than just smiles — they hold stories of late
+          laughs, shared dreams, and unbreakable bonds. From sunny afternoons to
+          peaceful mornings, every frame tells a chapter of our journey. Time may
+          move forward, but these memories keep us connected forever.
+        </p>
+      </div>
+
+    </div>
+    <div class="collage-wrapper">
+
+
+      <div class="collage-story">
+        <h3>✨ A Journey We Lived Together</h3>
+        <h4>📍 Dharan, Nepal</h4>
+        <p>
+          These moments capture more than just smiles — they hold stories of late
+          laughs, shared dreams, and unbreakable bonds. From sunny afternoons to
+          peaceful mornings, every frame tells a chapter of our journey. Time may
+          move forward, but these memories keep us connected forever.
+        </p>
+      </div>
+
+      <!-- COLLAGE -->
+      <div class="collage-grid">
+        <img src="./momery/003.jpg" class="img img1">
+        <img src="./momery/20180601_155624-1.jpg" class="img img2">
+        <img src="./momery/20181128_081240.jpg" class="img img3">
+        <img src="./momery/20181214_122947.jpg" class="img img4">
+        <img src="./momery/20190225_185034-1.jpg" class="img img5">
+        <img src="./momery/DSC04938.JPG" class="img img6">
+      </div>
+
+      <!-- STORY -->
+
+    </div>
+    <div class="collage-wrapper">
+
+      <!-- COLLAGE -->
+      <div class="collage-grid">
+        <img src="./momery/003.jpg" class="img img1">
+        <img src="./momery/20180601_155624-1.jpg" class="img img2">
+        <img src="./momery/20181128_081240.jpg" class="img img3">
+        <img src="./momery/20181214_122947.jpg" class="img img4">
+        <img src="./momery/20190225_185034-1.jpg" class="img img5">
+        <img src="./momery/DSC04938.JPG" class="img img6">
+      </div>
+
+
+
+      <!-- STORY -->
+      <div class="collage-story">
+        <h3>✨ A Journey We Lived Together</h3>
+        <h4>📍 Dharan, Nepal</h4>
+        <p>
+          These moments capture more than just smiles — they hold stories of late
+          laughs, shared dreams, and unbreakable bonds. From sunny afternoons to
+          peaceful mornings, every frame tells a chapter of our journey. Time may
+          move forward, but these memories keep us connected forever.
+        </p>
+      </div>
+
+    </div>
+    <div class="collage-wrapper">
+
+
+
+      <!-- STORY -->
+      <div class="collage-story">
+        <h3>✨ A Journey We Lived Together</h3>
+        <h4>📍 Dharan, Nepal</h4>
+        <p>
+          These moments capture more than just smiles — they hold stories of late
+          laughs, shared dreams, and unbreakable bonds. From sunny afternoons to
+          peaceful mornings, every frame tells a chapter of our journey. Time may
+          move forward, but these memories keep us connected forever.
+        </p>
+      </div>
+      <!-- COLLAGE -->
+      <div class="collage-grid">
+        <img src="./momery/003.jpg" class="img img1">
+        <img src="./momery/20180601_155624-1.jpg" class="img img2">
+        <img src="./momery/20181128_081240.jpg" class="img img3">
+        <img src="./momery/20181214_122947.jpg" class="img img4">
+        <img src="./momery/20190225_185034-1.jpg" class="img img5">
+        <img src="./momery/DSC04938.JPG" class="img img6">
+      </div>
+    </div>
+
+
+    <div class="collage-wrapper">
+
+      <!-- COLLAGE -->
+      <div class="collage-grid">
+        <img src="./momery/003.jpg" class="img img1">
+        <img src="./momery/20180601_155624-1.jpg" class="img img2">
+        <img src="./momery/20181128_081240.jpg" class="img img3">
+        <img src="./momery/20181214_122947.jpg" class="img img4">
+        <img src="./momery/20190225_185034-1.jpg" class="img img5">
+        <img src="./momery/DSC04938.JPG" class="img img6">
+      </div>
+
+      <!-- STORY -->
+      <div class="collage-story">
+        <h3>✨ A Journey We Lived Together</h3>
+        <h4>📍 Dharan, Nepal</h4>
+        <p>
+          These moments capture more than just smiles — they hold stories of late
+          laughs, shared dreams, and unbreakable bonds. From sunny afternoons to
+          peaceful mornings, every frame tells a chapter of our journey. Time may
+          move forward, but these memories keep us connected forever.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FUND SECTION -->
+  <section class="fund">
+
+    <div class="fund-container">
+
+      <!-- LEFT TEXT -->
+      <div class="fund-text">
+        <h2>PunYaSEEbatch2019 Fund</h2>
+        <p>
+          The PunYaSEEBatch2019 Fund is a collective initiative by our batch to support meaningful activities,
+          help students in need, and create lasting memories together.
+          It reflects our unity, responsibility, and commitment to give back to our school and community.
+        </p>
+
+        <p>
+          This fund is not just about money — it is about connection, contribution, and creating impact that lasts
+          beyond school life.
+        </p>
+      </div>
+
+      <!-- RIGHT IMAGE -->
+      <div class="fund-image">
+        <img src="https://picsum.photos/500/400?fund">
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- MEMBERS -->
+  <section class="members" id="members">
+    <h2>Our Stars ⭐</h2>
+
+    <div class="grid">
+      <div class="card member">
+        <img src="/image/aashish.jpg">
+        <h3>Aashish Chamling Rai</h3>
+        <p>Description</p>
+        <p><b>Dream Builder</b></p>
+      </div>
+
+      <div class="card member">
+        <img src="/image/aishom.jpg">
+        <h3>Aishom Rai</h3>
+        <p>Tech Genius</p>
+      </div>
+
+      <div class="card member">
+        <img src="/image/ajay.jpg">
+        <h3>Ajay Limbu</h3>
+        <p>Description</p>
+        <p>Creative Mind</p>
+      </div>
+
+      <div class="card member">
+        <img src="/image/Anju1.png">
+        <h3>Anju Rai</h3>
+        <p>Dream Builder</p>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card member">
+        <img src="/image/ashok2.png">
+        <h3>Ashok Rai</h3>
+        <p>Description</p>
+        <p>Creative Mind</p>
+      </div>
+
+      <div class="card member">
+        <img src="https://via.placeholder.com/300">
+        <h3>Asma Yamphu</h3>
+        <p>Creative Mind</p>
+      </div>
+
+
+      <div class="card member">
+        <img src="/image/bhim.png">
+        <h3>Bhim Kumar Limbu</h3>
+        <p>Tech Genius</p>
+      </div>
+
+      <div class="card member">
+        <img src="/image/Suja.jpg">
+        <h3>Bidya Limbu</h3>
+        <p>Tech Genius</p>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card member">
+        <img src="/image/bimal.jpg">
+        <h3>Bimal Chemjong</h3>
+        <p>Energy Queen</p>
+      </div>
+
+      <div class="card member">
+        <img src="/image/bismat1.png">
+        <h3>Bismat Limbu</h3>
+        <p>Tech Genius</p>
+      </div>
+
+      <div class="card member">
+        <img src="/image/chandrama.jpg">
+        <h3>Chandra Limbu</h3>
+        <p>Tech Genius</p>
+      </div>
+
+      <div class="card member">
+        <img src="/image/dhadkan.png">
+        <h3>Dhadkan Rai</h3>
+        <p>Tech Genius</p>
+      </div>
+    </div>
+
+
+    <div class="grid">
+      <div class="card member">
+        <img src="/image/dipika1.png">
+        <h3>Dipika Limbu</h3>
+        <p>Creative Mind</p>
+      </div>
+
+      <div class="card member">
+        <img src="/image/Dipti.jpg">
+        <h3>Dipti Rishal</h3>
+        <p>Description</p>
+        <p><b>Dream Builder</b></p>
+      </div>
+
+      <div class="card member">
+        <img src="/image/indira.jpg">
+        <h3>Indira Rai</h3>
+        <p>Creative Mind</p>
+      </div>
+
+      <div class="card member">
+        <img src="/image/jeevan.png">
+        <h3>Jeevan Bhujel</h3>
+        <p>Energy Queen</p>
+      </div>
+    </div>
+
+
+    <div class="grid">
+      <div class="card member">
+        <img src="./image/krishna maya.jpg">
+        <h3>Krishna Maya Limbu</h3>
+        <p>Dream Builder</p>
+      </div>
+
+      <div class="card member">
+        <img src="/image/lidiya.jpg">
+        <h3>Lidiya Sunuwar</h3>
+        <p>Description</p>
+        <p><b>Dream Builder</b></p>
+      </div>
+
+      <div class="card member">
+        <img src="/image/nabin.png">
+        <h3>Nabin Chemjong</h3>
+        <p>Creative Mind</p>
+      </div>
+
+      <div class="card member">
+        <img src="/image/nischal.jpg">
+        <h3>Nischal Chemjong</h3>
+        <p>Tech Genius</p>
+      </div>
+    </div>
+
+
+    <div class="grid">
+      <div class="card member">
+        <img src="/image/prabesh.jpg">
+        <h3>Prabesh Ban</h3>
+        <p>Tech Genius</p>
+      </div>
+
+      <div class="card member">
+        <img src="./image/prabha.png">
+        <h3>Prabha Chamling Rai</h3>
+        <p>Tech Genius</p>
+      </div>
+
+      <div class="card member">
+        <img src="/image/prakriti.png">
+        <h3>Prakriti Rana Magar</h3>
+        <p>Dream Builder</p>
+      </div>
+
+      <div class="card member">
+        <img src="/image/pramila.jpg">
+        <h3>Pramila Chemjong</h3>
+        <p>Energy Queen</p>
+      </div>
+
+
+    </div>
+
+    <div class="grid">
+      <div class="card member">
+        <img src="/image/prasmsa.jpg">
+        <h3>Prasamsa Ban</h3>
+        <p>Energy Queen</p>
+      </div>
+
+      <div class="card member">
+        <img src="./image/ramchandra.jpg">
+        <h3>Ram Chandra Limbu</h3>
+        <p>Creative Mind</p>
+      </div>
+
+      <div class="card member">
+        <img src="/image/samyok.jpg">
+        <h3>Samyok Samba</h3>
+        <p>Tech Genius</p>
+      </div>
+
+      <div class="card member">
+        <img src="/image/sandeshlimbu.jpg">
+        <h3>Sandesh Limbu</h3>
+        <p>Energy Queen</p>
+      </div>
+    </div>
+
+
+
+
+    <div class="grid">
+      <div class="card member">
+        <img src="/image/sandesh.jpg">
+        <h3>Sandesh Rai</h3>
+        <p>Description</p>
+        <p><b>Dream Builder</b></p>
+      </div>
+
+      <div class="card member">
+        <img src="/image/Shringma.png">
+        <h3>Shringma Chemjong</h3>
+        <p>Tech Genius</p>
+      </div>
+
+      <div class="card member">
+        <img src="/image/shrijana.jpg">
+        <h3>Shrijana Limbu</h3>
+        <p>Description</p>
+        <p><b>Dream Builder</b></p>
+      </div>
+
+      <div class="card member">
+        <img src="/image/sima.png">
+        <h3>Sima Thapa Magar</h3>
+        <p>Creative Mind</p>
+      </div>
+    </div>
+
+
+    <div class="grid">
+      <div class="card member">
+        <img src="/image/Shobha.png">
+        <h3>Shobha Chemjong</h3>
+        <p>Creative Mind</p>
+      </div>
+
+      <div class="card member">
+        <img src="/image/sony.jpg">
+        <h3>Sony Gahatraj</h3>
+        <p>Energy Queen</p>
+      </div>
+
+      <div class="card member">
+        <img src="/image/supar.png">
+        <h3>Supar Rai</h3>
+        <p>Dream Builder</p>
+      </div>
+
+      <div class="card member">
+        <img src="/image">
+        <h3>Susmita Rai</h3>
+        <p>Dream Builder</p>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card member">
+        <img src="/image/teks.jpg">
+        <h3>Teknath Limbu</h3>
+        <p>Description</p>
+        <p><b>Dream Builder</b></p>
+      </div>
+
+      <div class="card member">
+        <img src="/image/yunisha.png">
+        <h3>Younisha Rishal</h3>
+        <p>Description</p>
+        <p><b>Dream Builder</b></p>
+      </div>
+
+      <div class="card member">
+        <img src="/image/yunik.png">
+        <h3>Yunik Rai</h3>
+        <p>Description</p>
+        <p><b>Dream Builder</b></p>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    Made with ❤️ | PunYaSEEbatch2019
+  </footer>
+
+  <script>
+    // navbar scroll effect
+    window.addEventListener("scroll", function () {
+      const navbar = document.getElementById("navbar");
+      navbar.classList.toggle("scrolled", window.scrollY > 50);
+    });
+
+    // mobile menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // smooth scroll
+    document.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', e => {
+        if (link.getAttribute('href').startsWith('#')) {
+          e.preventDefault();
+          document.querySelector(link.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
+          // close mobile menu after click
+          navLinks.classList.remove('active');
+        }
+      });
+    });
+
+
+
+
+// Gallery----------------------------------------------------------------
+    const images = document.querySelectorAll('.collage-grid img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.getElementById('close');
+
+    images.forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.classList.add('active');
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+    });
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target !== lightboxImg) {
+        lightbox.classList.remove('active');
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === "Escape") {
+        lightbox.classList.remove('active');
+      }
+    });
+
+  </script>
+
+</body>
+
+</html>
