@@ -210,6 +210,10 @@
       color: var(--muted);
     }
 
+    .hero-tag{
+      transform: translateY(180px);
+      margin-right: 20px;
+    }
     /* CRYSTAL CARD */
     .card {
       position: relative;
@@ -461,6 +465,27 @@
 
     /* -------------------------RESPONSIVE---------------------------------- */
     @media(max-width:768px) {
+        .hero {
+        padding: 90px 15px 50px;
+        height: auto;
+        min-height: 760px;
+      }
+      .hero h1{
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        margin-top: 80px;
+      }
+
+      .hero-tag{
+      transform: translateY(280px);
+      margin-left: 20px;
+     
+    }
+
+
+
+
+
+
       .fund {
         padding: 40px 20px;
       }
@@ -525,11 +550,11 @@
         height: 35px;
       }
 
-      .hero {
+      /* .hero {
         padding: 90px 15px 50px;
         height: auto;
-        min-height: 500px;
-      }
+        min-height: 760px;
+      } */
 
       .hero h1 {
         font-size: 24px;
@@ -1009,6 +1034,8 @@
   <section class="hero" id="hero">
     <h1>Crystal Memories</h1>
     <p>Moments that shine forever like crystal 💎</p>
+
+    <p class="hero-tag">A Journey of Unity, Care, and Prosperity</p>
   </section>
 
 
