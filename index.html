@@ -207,10 +207,11 @@
       color: var(--muted);
     }
 
-    .hero-tag{
+    .hero-tag {
       transform: translateY(180px);
       margin-right: 20px;
     }
+
     /* CRYSTAL CARD */
     .card {
       position: relative;
@@ -417,7 +418,7 @@
       font-size: 14px;
     }
 
-    
+
 
     /* ----------------------- gallery SECTION------------------------------ */
     .collage-section {
@@ -592,208 +593,209 @@
     }
 
 
-/* -------------------------RESPONSIVE---------------------------------- */
-@media (max-width: 768px) {
+    /* -------------------------RESPONSIVE---------------------------------- */
+    @media (max-width: 768px) {
 
-  /* ---------- HERO ---------- */
-  .hero {
-    padding: 90px 15px 50px;
-    height: auto;
-    min-height: 760px;
-  }
+      /* ---------- HERO ---------- */
+      .hero {
+        padding: 90px 15px 50px;
+        height: auto;
+        min-height: 760px;
+      }
 
-  .hero h1 {
-    font-size: 32px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    margin-top: 80px;
-  }
+      .hero h1 {
+        font-size: 32px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        margin-top: 80px;
+      }
 
-  .hero-tag {
-    transform: translateY(280px);
-    margin-left: 20px;
-  }
+      .hero-tag {
+        transform: translateY(280px);
+        margin-left: 20px;
+      }
 
-  .hero::before {
-    background-size: 280px;
-    background-attachment: scroll;
-  }
+      .hero::before {
+        background-size: 280px;
+        background-attachment: scroll;
+      }
 
-  /* ---------- NAVBAR ---------- */
-  nav ul {
-    display: none;
-  }
+      /* ---------- NAVBAR ---------- */
+      nav ul {
+        display: none;
+      }
 
-  .menu-toggle {
-    display: block;
-  }
+      .menu-toggle {
+        display: block;
+      }
 
-  #navbar {
-    padding: 15px 20px;
-  }
+      #navbar {
+        padding: 15px 20px;
+      }
 
-  .nav-links {
-    position: absolute;
-    top: 100%;
-    right: 20px;
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        right: 20px;
 
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
 
-    padding: 20px;
-    border-radius: 10px;
+        padding: 20px;
+        border-radius: 10px;
 
-    background: var(--glass);
-    backdrop-filter: blur(20px);
-    border: 1px solid var(--border);
+        background: var(--glass);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--border);
 
-    transform: translateY(-20px);
-    opacity: 0;
-    visibility: hidden;
+        transform: translateY(-20px);
+        opacity: 0;
+        visibility: hidden;
 
-    transition: 0.3s;
-    z-index: 1001;
-  }
+        transition: 0.3s;
+        z-index: 1001;
+      }
 
-  .nav-links.active {
-    transform: translateY(0);
-    opacity: 1;
-    visibility: visible;
-  }
+      .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
 
-  .nav-links a {
-    color: var(--text);
-    text-decoration: none;
-    padding: 10px 0;
-    border-bottom: 1px solid var(--border);
-  }
+      .nav-links a {
+        color: var(--text);
+        text-decoration: none;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--border);
+      }
 
-  .nav-links a:last-child {
-    border-bottom: none;
-  }
+      .nav-links a:last-child {
+        border-bottom: none;
+      }
 
-  /* ---------- FUND SECTION ---------- */
-  .fund,
-  .fund-aims {
-    padding: 40px 20px;
-  }
+      /* ---------- FUND SECTION ---------- */
+      .fund,
+      .fund-aims {
+        padding: 40px 20px;
+      }
 
-  .fund-container,
-  .collage-wrapper {
-    flex-direction: column;
-    gap: 30px;
-    width: 100%;
-  }
+      .fund-container,
+      .collage-wrapper {
+        flex-direction: column;
+        gap: 30px;
+        width: 100%;
+      }
 
-  .fund-container,
-  .grid,
-  .aim-grid {
-    padding: 0 10px;
-  }
+      .fund-container,
+      .grid,
+      .aim-grid {
+        padding: 0 10px;
+      }
 
-  .fund-text,
-  .collage-story {
-    text-align: center;
-  }
+      .fund-text,
+      .collage-story {
+        text-align: center;
+      }
 
-  .fund-image {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
+      .fund-image {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
 
-  .fund-image img {
-    width: 100%;
-  }
+      .fund-image img {
+        width: 100%;
+      }
 
 
 
-  /* ---------- MEMBERS & AIMS ---------- */
-  .members {
-    padding: 30px 20px;
-  }
+      /* ---------- MEMBERS & AIMS ---------- */
+      .members {
+        padding: 30px 20px;
+      }
 
-  .grid,
-  .aim-grid {
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 15px;
-  }
+      .grid,
+      .aim-grid {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 15px;
+      }
 
-  .card {
-    margin-bottom: 16px;
-  }
+      .card {
+        margin-bottom: 16px;
+      }
 
-  /* ---------- COLLAGE ---------- */
-  .collage-section {
-    width: 100%;
-    padding: 50px 20px;
-  }
+      /* ---------- COLLAGE ---------- */
+      .collage-section {
+        width: 100%;
+        padding: 50px 20px;
+      }
 
-  .collage-section h2 {
-    font-size: 2rem;
-    color: azure;
-  }
+      .collage-section h2 {
+        font-size: 2rem;
+        color: azure;
+      }
 
-  .collage-wrapper {
-    margin-bottom: 60px;
-  }
+      .collage-wrapper {
+        margin-bottom: 60px;
+      }
 
-  .collage-grid {
-    width: 360px;
-    height: 300px;
-  }
+      .collage-grid {
+        width: 360px;
+        height: 300px;
+      }
 
-  .collage-grid .img {
-    width: 120px;
-    height: 120px;
-  }
+      .collage-grid .img {
+        width: 120px;
+        height: 120px;
+      }
 
-  .fund-text h3 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-  }
+      .fund-text h3 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
 
-   /* POSITIONS */
-    .img1 {
-      top: 0;
-      left: 0px;
-      transform: rotate(-8deg);
+      /* POSITIONS */
+      .img1 {
+        top: 0;
+        left: 0px;
+        transform: rotate(-8deg);
+      }
+
+      .img2 {
+        top: 100px;
+        left: 130px;
+        transform: rotate(-8deg);
+      }
+
+      .img3 {
+        top: 120px;
+        left: 0px;
+        transform: rotate(4deg);
+      }
+
+      .img4 {
+        top: 120px;
+        left: 260px;
+        transform: rotate(-6deg);
+      }
+
+      .img5 {
+        top: 20px;
+        left: 130px;
+        transform: rotate(8deg);
+        z-index: 2;
+      }
+
+      .img6 {
+        top: 0px;
+        left: 260px;
+        transform: rotate(7deg);
+      }
+
+      .collage-section {
+        margin-bottom: -80px;
+      }
     }
-
-    .img2 {
-      top: 100px;
-      left: 130px;
-      transform: rotate(-8deg);
-    }
-
-    .img3 {
-      top: 120px;
-      left: 0px;
-      transform: rotate(4deg);
-    }
-
-    .img4 {
-      top: 120px;
-      left: 260px;
-      transform: rotate(-6deg);
-    }
-
-    .img5 {
-      top: 20px;
-      left: 130px;
-      transform: rotate(8deg);
-      z-index: 2;
-    }
-
-    .img6 {
-      top: 0px;
-      left: 260px;
-      transform: rotate(7deg);
-    }
-    .collage-section{
-      margin-bottom: -80px;
-    }
-}
 
 
 
@@ -816,7 +818,7 @@
 
 
     /* -------------------------480---------------------------- */
-     @media(max-width:480px) {
+    @media(max-width:480px) {
       #navbar {
         padding: 10px 15px;
       }
@@ -832,7 +834,7 @@
         min-height: 760px;
       } */
 
-       .logo-img {
+      .logo-img {
         width: 70px;
         height: 35px;
         object-fit: cover;
@@ -1092,35 +1094,45 @@
         <img src="./punyaMemory/G8.JPG" class="img img1">
         <img src="./punyaMemory/G7.jpg" class="img img2">
         <img src="./punyaMemory/g3.jpg" class="img img3">
-        <img src="./punyaMemory/g4.jpg" class="img img4">
+        <img src="./punyaMemory/G20.jfif" class="img img4">
         <img src="./punyaMemory/G6.jpg" class="img img5">
         <img src="./punyaMemory/pb1.jpg" class="img img6">
       </div>
 
       <!-- STORY -->
       <div class="fund-text">
-        <h3>✨ A Journey We Lived Together</h3>
-        <h4>📍 Dharan, Nepal</h4>
+        <h3>Group Photo</h3>
+        <h4>A memory we create together</h4>
         <p>
-          These moments capture more than just smiles — they hold stories of late
-          laughs, shared dreams, and unbreakable bonds. From sunny afternoons to
-          peaceful mornings, every frame tells a chapter of our journey. Time may
-          move forward, but these memories keep us connected forever.
+          Some photos are not just photos — they are memories of our days, our school life, and the special moments we
+          lived together.
+          During school life, we did not take many pictures, but somehow the few photos we have now carry countless
+          emotions inside them. Every photo recalls our happiness, friendships, laughter, innocence, and the beautiful
+          moments we shared at that time.<br>
+
+          When we look at those pictures today, they do not only show faces — they bring back voices, feelings,
+          memories, and the unforgettable chapter of our school life.
         </p>
       </div>
 
     </div>
     <div class="collage-wrapper">
 
-
       <div class="fund-text">
-        <h3>✨ A Journey We Lived Together</h3>
-        <h4>📍 Dharan, Nepal</h4>
+        <h3>Social Responsibility</h3>
+        <h4>Dumping Site Punya</h4>
         <p>
-          These moments capture more than just smiles — they hold stories of late
-          laughs, shared dreams, and unbreakable bonds. From sunny afternoons to
-          peaceful mornings, every frame tells a chapter of our journey. Time may
-          move forward, but these memories keep us connected forever.
+          Near the examination days, we were attending long and continuous classes every day. We became tired of
+          studying for hours and desperately wanted a small break from the pressure and routine.
+          So, all the classes together planned something different — cleaning the dumping areas of the school. Deep
+          inside, it was also our little excuse to escape the classrooms for a while and enjoy some freedom with
+          friends.<br>
+          After some time, we finally began cleaning the dumping sites, and surprisingly, everyone participated happily.
+          Instead of stress and books, there was laughter, teamwork, fun conversations, and joyful memories everywhere.
+          Even when the teachers came to call us back to class, we stayed busy cleaning and enjoying the moment
+          together. For that day, the dumping area became more cheerful than the classroom itself.
+          Now, those funny little plans, shared smiles, and carefree moments before the exams have become unforgettable
+          memories of our school life.
         </p>
       </div>
 
@@ -1133,7 +1145,7 @@
         <img src="./punyaMemory/c2.jpg" class="img img5">
         <img src="./punyaMemory/c3.jpg" class="img img6">
 
- 
+
       </div>
 
       <!-- STORY -->
@@ -1155,14 +1167,18 @@
 
       <!-- STORY -->
       <div class="fund-text">
-        <h3>✨ A Journey We Lived Together</h3>
-        <h4>📍 Dharan, Nepal</h4>
+        <h3>A Journey We Lived Together</h3>
+        <h4> Rajarani Dhankuta, Nepal</h4>
         <p>
-          These moments capture more than just smiles — they hold stories of late
-          laughs, shared dreams, and unbreakable bonds. From sunny afternoons to
-          peaceful mornings, every frame tells a chapter of our journey. Time may
-          move forward, but these memories keep us connected forever.
-        </p>
+          A school selfie was never just a picture.
+          It carried our smiles, our friendship, our energy, and the pure happiness of those days.
+          Some friends were always serious, some were crazy, some always late, and some made every moment special just
+          by being there.
+          Back then, we never realized those moments would become memories we would miss so deeply one day.
+          <br>
+          Now everyone is slowly moving toward different paths, different dreams, and different lives.
+          But no matter how far life takes us, one thing will always stay the same —
+          the memories of our school life and the people who made it beautiful.
       </div>
 
     </div>
@@ -1186,12 +1202,12 @@
 
       <!-- COLLAGE -->
       <div class="collage-grid">
-        <img src="./momery/003.jpg" class="img img1">
-        <img src="./momery/20180601_155624-1.jpg" class="img img2">
-        <img src="./momery/20181128_081240.jpg" class="img img3">
-        <img src="./momery/20181214_122947.jpg" class="img img4">
-        <img src="./momery/20190225_185034-1.jpg" class="img img5">
-        <img src="./momery/DSC04938.JPG" class="img img6">
+        <img src="./punyaMemory/y7.jpg" class="img img1">
+        <img src="./punyaMemory/y6.jpg" class="img img2">
+        <img src="./punyaMemory/y3.jpg" class="img img3">
+        <img src="./punyaMemory/y2.jpg" class="img img4">
+        <img src="./punyaMemory/y1.jpg" class="img img5">
+        <img src="./punyaMemory/s20.jpg" class="img img6">
       </div>
     </div>
 
@@ -1209,19 +1225,20 @@
 
       <!-- STORY -->
       <div class="fund-text">
-        <h3>✨ A Journey We Lived Together</h3>
-        <h4>📍 Dharan, Nepal</h4>
+        <h3>SEE Close Camp Refeshment</h3>
+        <h4>Rajarani, Dhankuta, Nepal</h4>
         <p>
-          These moments capture more than just smiles — they hold stories of late
-          laughs, shared dreams, and unbreakable bonds. From sunny afternoons to
-          peaceful mornings, every frame tells a chapter of our journey. Time may
-          move forward, but these memories keep us connected forever.
+          During our SEE examination close camp, we had to attend school from 5:30 in the morning until 6:00 in the
+          evening. Because of the long schedule and exam pressure, we often felt frustrated and tired. To refresh
+          ourselves, we planned some fun activities in the evening around 7–8 PM, such as visiting Lake, playing
+          near the lake, climbing the Ncell Tower, and spending quality time together with friends. Those moments
+          became some of the most memorable and amazing experiences of our lives.
         </p>
       </div>
     </div>
 
 
-    
+
 
     <div class="collage-wrapper">
       <!-- COLLAGE -->
@@ -1230,25 +1247,27 @@
         <h3>✨ A Journey We Lived Together</h3>
         <h4>📍 Dharan, Nepal</h4>
         <p>
-          These moments capture more than just smiles — they hold stories of late
-          laughs, shared dreams, and unbreakable bonds. From sunny afternoons to
-          peaceful mornings, every frame tells a chapter of our journey. Time may
-          move forward, but these memories keep us connected forever.
+          In our school, during the beautiful spring season, roses bloomed, flowers blossomed, and every corner was
+          filled with life, color, and happiness. Their beauty made our school feel like the most peaceful and
+          pleasurable place to be.
+
+          Just like the flowers blooming together, our friendship, laughter, and unforgettable memories also blossomed
+          with time. Every smile, every moment, and every memory we shared became as beautiful as the flowers around us.
         </p>
       </div>
 
-          <div class="collage-grid">
+      <div class="collage-grid">
         <img src="./punyaMemory/p1.jpg" class="img img1">
-        <img src="./punyaMemory/p2.jpg" class="img img2">
+        <img src="./punyaMemory/p9.jpg" class="img img2">
         <img src="./punyaMemory/p3 (1).JPG" class="img img3">
-        <img src="./punyaMemory/p4.JPG" class="img img4">
-        <img src="./punyaMemory/p2.jpg" class="img img5">
-        <img src="./punyaMemory/p2.jpg" class="img img6">
+        <img src="./punyaMemory/p8.jpg" class="img img4">
+        <img src="./punyaMemory/p6.jpg" class="img img5">
+        <img src="./punyaMemory/p7.jpg" class="img img6">
       </div>
     </div>
 
 
-  <div class="collage-wrapper">
+    <div class="collage-wrapper">
       <!-- COLLAGE -->
       <div class="collage-grid">
         <img src="./punyaMemory/s1.jpg" class="img img1">
@@ -1261,17 +1280,27 @@
 
       <!-- STORY -->
       <div class="fund-text">
-        <h3>✨ A Journey We Lived Together</h3>
-        <h4>📍 Dharan, Nepal</h4>
+        <h3>SEE and Our Last Day</h3>
+        <h4>Budhuk Secondary School</h4>
         <p>
-          These moments capture more than just smiles — they hold stories of late
-          laughs, shared dreams, and unbreakable bonds. From sunny afternoons to
-          peaceful mornings, every frame tells a chapter of our journey. Time may
-          move forward, but these memories keep us connected forever.
+          Today, our SEE examination begins from Chaitra 10, and we are preparing ourselves for this long-awaited moment
+          with hard work, dedication, and hope. The pressure, sleepless nights, endless preparations, and silent
+          determination make this phase of life truly unforgettable.<br>
+
+          Beyond the examination halls, the most beautiful part is the happiness shared with friends — the smiles after
+          exams, the laughter, discussions, and the feeling of relief together. Those little moments become the
+          brightest memories of our school life.<br>
+
+          But with the end of the SEE examination, our journey slowly begins to change. From that day, we become
+          separated from our school, our respected teachers, and the friends who once filled our days with joy and
+          companionship.<br>
+
+          The classrooms may become empty, but the memories, friendships, and moments we created together will always
+          remain alive in our hearts forever.
         </p>
       </div>
     </div>
-    
+
   </section>
 
 
@@ -1288,7 +1317,7 @@
           From classroom laughter to unforgettable moments, School gave us a family beyond friendship. ❤️✨
         </p>
         <p>
-           No matter where life takes us, these smiles will always remind us of the beautiful journey we shared together.
+          No matter where life takes us, these smiles will always remind us of the beautiful journey we shared together.
         </p>
       </div>
 
@@ -1676,7 +1705,7 @@
       </div>
 
       <div class="card member">
-        <img src="/image">
+        <img src="/image/ithel.png">
         <h3>Ithel Limbu</h3>
         <p>Leave Shcool</p>
         <p>Transfer itahari</p>
